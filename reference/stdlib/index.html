@@ -1,0 +1,3333 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for TuffSeal scripting language.">
+      
+      
+        <meta name="author" content="U-235Consumer">
+      
+      
+      
+        <link rel="prev" href="../builtins/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Stdlib - TuffSeal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tuffseal-stdlib-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TuffSeal" class="md-header__button md-logo" aria-label="TuffSeal" data-md-component="logo">
+      
+  <img src="../../icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TuffSeal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Stdlib
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TuffSeal/TuffSeal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TuffSeal
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TuffSeal" class="md-nav__button md-logo" aria-label="TuffSeal" data-md-component="logo">
+      
+  <img src="../../icon.png" alt="logo">
+
+    </a>
+    TuffSeal
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TuffSeal/TuffSeal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TuffSeal
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Self Calls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/attributes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attribute Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules & Imports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PMS (PackMySeal)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PMS (PackMySeal)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pms/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pms/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pms/creating-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PMS Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pms/managing-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing your PMS account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pms/install-upload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing & Uploading modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keywords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../builtins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stdlib
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stdlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        task
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wait
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spawn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        defer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cancel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stdio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="stdio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ewrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ewrite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readLine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readtoend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readToEnd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#readfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        writeFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        writeDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadatapermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MetadataPermissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writeoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WriteOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exec
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execstdiokind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecStdioKind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execstdiooptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecStdioOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildProcess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childprocessreader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildProcessReader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childprocesswriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildProcessWriter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serde
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="serde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-formats-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Formats &amp; Algorithms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Formats &amp; Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encodedecodeformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EncodeDecodeFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compressdecompressformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CompressDecompressFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashalgorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HashAlgorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        net
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="net">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        datetime
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="datetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties-on-datetime-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties (on DateTime instances)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-on-datetime-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods (on DateTime instances)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        task
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wait
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spawn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        defer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cancel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stdio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="stdio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ewrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ewrite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readLine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readtoend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readToEnd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#readfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        writeFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        writeDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadatapermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MetadataPermissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writeoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WriteOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exec
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execstdiokind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecStdioKind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execstdiooptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecStdioOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateOptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildProcess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childprocessreader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildProcessReader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childprocesswriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildProcessWriter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serde
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="serde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-formats-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Formats &amp; Algorithms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Formats &amp; Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encodedecodeformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EncodeDecodeFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compressdecompressformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CompressDecompressFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashalgorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HashAlgorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        net
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="net">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        datetime
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="datetime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties-on-datetime-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties (on DateTime instances)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-on-datetime-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods (on DateTime instances)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tuffseal-stdlib-reference">TuffSeal stdlib Reference</h1>
+<h2 id="task">task</h2>
+<h3 id="wait">wait</h3>
+<p>Yields the current thread for a specified amount of time.</p>
+<p>Usage:</p>
+<pre><code>task.wait(time: int); // time should be in seconds.
+</code></pre>
+<pre><code class="language-js">let task = loadmodule(&quot;@stdlib/task&quot;)!;
+
+print(&quot;Waiting 5 seconds...&quot;);
+task.wait(5);
+print(&quot;Done!&quot;);
+</code></pre>
+<h3 id="delay">delay</h3>
+<p>Runs a function after a specified amount of time</p>
+<p>Usage:</p>
+<pre><code>task.delay(seconds: int, f: fn)
+</code></pre>
+<pre><code class="language-js">let task = loadmodule(&quot;@stdlib/task&quot;)!;
+
+fn to_delay()
+{
+    print(&quot;this task was delayed!&quot;);
+}
+
+task.delay(2, to_delay());
+
+</code></pre>
+<h3 id="spawn">spawn</h3>
+<p>Creates a new task that runs concurrently.</p>
+<p>Usage:</p>
+<pre><code>task.spawn(f: fn)
+</code></pre>
+<pre><code class="language-js">let task = loadmodule(&quot;@stdlib/task&quot;)!;
+
+fn task_func()
+{
+    while (true) {
+        task.wait(1);
+        print(&quot;hi!&quot;);
+    }
+}
+
+let new_task = task.spawn(task_func);
+</code></pre>
+<h3 id="defer">defer</h3>
+<p>Defers a thread or function to run at the end of the current task queue.</p>
+<p>Usage:</p>
+<pre><code>task.defer(f: fn)
+</code></pre>
+<pre><code class="language-js">let task = loadmodule(&quot;@stdlib/task&quot;)!;
+
+fn task1() { print(&quot;OK&quot;) };
+fn task2() { print(&quot;OK&quot;) };
+
+fn __d()
+{
+    print(&quot;this task runs last.&quot;);
+}
+
+let task_1 = task.spawn(task1);
+let task_2 = task.spawn(task2);
+let deferred_thread = task.defer(__d);
+
+</code></pre>
+<h3 id="cancel">cancel</h3>
+<p>Stops a currently scheduled thread from resuming.</p>
+<p>Usage:</p>
+<pre><code>task.cancel(thread)
+</code></pre>
+<pre><code class="language-js">let task = loadmodule(&quot;@stdlib/task&quot;)!;
+
+fn task_fn()
+{
+    while (true) {
+        task.wait(1);
+        print(&quot;hello!&quot;);
+    }
+}
+
+let t = task.spawn(task_fn);
+task.wait(5);
+task.cancel(t); // terminate the task after 5 seconds
+</code></pre>
+<h2 id="stdio">stdio</h2>
+<h3 id="prompt">prompt</h3>
+<p>Prompts for user input using the wanted kind of prompt:</p>
+<ul>
+<li><code>text</code> - Prompts for a plain text string from the user.</li>
+<li><code>confirm</code> - Prompts the user to confirm with y / n (yes / no)</li>
+<li><code>select</code> - Prompts the user to select <em>one or more</em> values from a list</li>
+<li><code>null</code> - Equivalent to "text" with no extra arguments</li>
+</ul>
+<p>Usage:</p>
+<pre><code>stdio.prompt(kind: str, message: str): str
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+let text = stdio.prompt(&quot;text&quot;, &quot;Write some text: &quot;);
+
+print(text);
+</code></pre>
+<h3 id="color">color</h3>
+<p>Returns an ANSI string that can be used to modify the persistent output color.</p>
+<p>Pass <code>"reset"</code> to get a string that resets the persistent output color.</p>
+<p>Usage:</p>
+<pre><code>stdio.color(color: str): str
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+print(stdio.color(&quot;red&quot;));
+print(&quot;This text is red!&quot;);
+print(stdio.color(&quot;reset&quot;));
+print(&quot;This text is back to normal.&quot;);
+</code></pre>
+<h3 id="style">style</h3>
+<p>Return an ANSI string that can be used to modify the persistent output style.</p>
+<p>Pass <code>"reset"</code> to get a string that can reset the persistent output style.</p>
+<p>Usage:</p>
+<pre><code>stdio.style(style: str): str
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+print(stdio.style(&quot;bold&quot;));
+print(&quot;This text will be bold!&quot;);
+print(stdio.style(&quot;reset&quot;));
+</code></pre>
+<h3 id="write">write</h3>
+<p>Writes a string directly to stdout, without any new line.</p>
+<p>Usage:</p>
+<pre><code>stdio.write(s: str)
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+stdio.write(&quot;Hello, &quot;);
+stdio.write(&quot;world!\n&quot;);
+
+// both of these will output on the same line.
+</code></pre>
+<h3 id="ewrite">ewrite</h3>
+<p>Writes a string directly to stderr, without any new line.</p>
+<p>Usage:</p>
+<pre><code>stdio.ewrite(s: str)
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+stdio.ewrite(&quot;Error: &quot;);
+stdio.ewrite(&quot;whatever\n&quot;);
+
+// Both of these will output on the same line.
+</code></pre>
+<h3 id="readline">readLine</h3>
+<p>Reads a single line from stdin.</p>
+<p>Usage:</p>
+<pre><code>stdio.readLine(): str
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+print(stdio.readLine());
+</code></pre>
+<h3 id="readtoend">readToEnd</h3>
+<p>Reads the entire input from stdin.</p>
+<p>Usage:</p>
+<pre><code>stdio.readToEnv(): str
+</code></pre>
+<pre><code class="language-js">let stdio = loadmodule(&quot;@std/stdio&quot;)!;
+
+print(stdio.readToEnd());
+</code></pre>
+<p>Here is a clean, consistent Markdown documentation section for the <strong><code>fs</code></strong> module in TuffSeal, based on the functions and types you provided:</p>
+<h2 id="fs">fs</h2>
+<p>File system operations module.<br />
+Provides synchronous file and directory manipulation.  </p>
+<p>All functions throw an error on failure (file/directory not found, permission denied, I/O error, invalid operation, etc.).</p>
+<h3 id="readfile">readFile</h3>
+<p>Reads the entire contents of a file as a string.</p>
+<pre><code class="language-js">fs.readFile(path: str): str
+</code></pre>
+<p><strong>Throws</strong> if:
+- path does not point to an existing file
+- no read permission
+- I/O error occurred</p>
+<h3 id="readdir">readDir</h3>
+<p>Returns a list of file and directory names (base names only) in the specified directory.</p>
+<pre><code class="language-js">fs.readDir(path: str): [str]
+</code></pre>
+<p><strong>Throws</strong> if:
+- path is not an existing directory
+- no read permission
+- I/O error occurred</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-js">let entries = fs.readDir(&quot;scripts&quot;);
+for (name in entries) {
+    print(name);
+}
+</code></pre>
+<h3 id="writefile">writeFile</h3>
+<p>Writes (or overwrites) a file with the given content.</p>
+<pre><code class="language-js">fs.writeFile(path: str, contents: str)
+</code></pre>
+<p><strong>Throws</strong> if:
+- parent directory does not exist
+- no write permission
+- I/O error occurred</p>
+<h3 id="writedir">writeDir</h3>
+<p>Creates a directory and all necessary parent directories (like <code>mkdir -p</code>).</p>
+<pre><code class="language-js">fs.writeDir(path: str)
+</code></pre>
+<p><strong>Throws</strong> if:
+- path already exists as a file or directory
+- no permission to create directory/parents
+- I/O error occurred</p>
+<h3 id="removefile">removeFile</h3>
+<p>Deletes a file (does <strong>not</strong> work on directories).</p>
+<pre><code class="language-js">fs.removeFile(path: str)
+</code></pre>
+<p><strong>Throws</strong> if:
+- path is not an existing file
+- no permission to remove
+- I/O error occurred</p>
+<h3 id="removedir">removeDir</h3>
+<p>Removes a directory <strong>and all of its contents</strong> recursively.</p>
+<pre><code class="language-js">fs.removeDir(path: str)
+</code></pre>
+<p><strong>Throws</strong> if:
+- path is not an existing directory
+- no permission to remove
+- I/O error occurred</p>
+<p><strong>Warning:</strong> This operation is destructive — use with caution!</p>
+<h3 id="metadata">metadata</h3>
+<p>Returns detailed metadata about a file or directory.</p>
+<pre><code class="language-js">fs.metadata(path: str): Metadata
+</code></pre>
+<p><strong>Throws</strong> if:
+- no permission to read metadata
+- I/O error occurred</p>
+<p><strong>Returns:</strong> A dictionary with the following keys:
+- <code>kind</code>: <code>"file"</code>, <code>"dir"</code>, or <code>"symlink"</code>
+- <code>exists</code>: <code>bool</code>
+- <code>createdAt</code>: <code>DateTime</code> (creation time)
+- <code>modifiedAt</code>: <code>DateTime</code> (last modification time)
+- <code>accessedAt</code>: <code>DateTime</code> (last access time)
+- <code>permissions</code>: <code>MetadataPermissions</code> dictionary</p>
+<p><strong>Note:</strong> Timestamps are Unix epoch based and depend on system clock accuracy.</p>
+<h3 id="isfile">isFile</h3>
+<p>Checks whether the path points to a regular file.</p>
+<pre><code class="language-js">fs.isFile(path: str): bool
+</code></pre>
+<p><strong>Throws</strong> if:
+- no permission to read metadata
+- I/O error occurred</p>
+<h3 id="isdir">isDir</h3>
+<p>Checks whether the path points to a directory.</p>
+<pre><code class="language-js">fs.isDir(path: str): bool
+</code></pre>
+<p><strong>Throws</strong> if:
+- no permission to read metadata
+- I/O error occurred</p>
+<h3 id="move">move</h3>
+<p>Moves (renames) a file or directory to a new location.</p>
+<pre><code class="language-js">fs.move(from: str, to: str, overwriteOrOptions: bool | WriteOptions = false)
+</code></pre>
+<p><strong>Throws</strong> if:
+- no read permission at source or write permission at destination
+- target already exists (unless <code>overwrite</code> is <code>true</code>)
+- source and destination are on different mount points
+- I/O error occurred</p>
+<h3 id="copy">copy</h3>
+<p>Recursively copies a file or directory to a new location.</p>
+<pre><code class="language-js">fs.copy(from: str, to: str, overwriteOrOptions: bool | WriteOptions = false)
+</code></pre>
+<p><strong>Throws</strong> if:
+- no read permission at source or write permission at destination
+- target already exists (unless <code>overwrite</code> is <code>true</code>)
+- I/O error occurred</p>
+<h2 id="types">Types</h2>
+<h3 id="metadatapermissions">MetadataPermissions</h3>
+<pre><code class="language-js">{
+    readOnly: bool
+}
+</code></pre>
+<h3 id="metadata_1">Metadata</h3>
+<pre><code class="language-js">{
+    kind: str,          // &quot;file&quot; | &quot;dir&quot; | &quot;symlink&quot;
+    exists: bool,
+    createdAt: DateTime,
+    modifiedAt: DateTime,
+    accessedAt: DateTime,
+    permissions: MetadataPermissions
+}
+</code></pre>
+<h3 id="writeoptions">WriteOptions</h3>
+<p>Options for write/move/copy operations:</p>
+<pre><code class="language-js">{
+    overwrite: bool     // whether to overwrite existing target (default: false)
+    // more keys may be added in future versions
+}
+</code></pre>
+<hr />
+<p><strong>Loading the module:</strong></p>
+<pre><code class="language-js">let fs = loadmodule(&quot;@std/fs&quot;)!;
+</code></pre>
+<h2 id="process">process</h2>
+<p>Process management module.<br />
+Provides access to current process information, environment, command-line arguments, and the ability to spawn and interact with child processes (synchronously or asynchronously).</p>
+<h3 id="properties">Properties</h3>
+<p><strong>os</strong><br />
+The current operating system identifier.<br />
+Possible values: <code>"linux"</code>, <code>"macos"</code>, <code>"windows"</code></p>
+<p><strong>arch</strong><br />
+The processor architecture.<br />
+Possible values: <code>"x86_64"</code>, <code>"aarch64"</code></p>
+<p><strong>endianness</strong><br />
+The processor endianness.<br />
+Possible values: <code>"little"</code>, <code>"big"</code></p>
+<p><strong>args</strong><br />
+Array of command-line arguments passed when the script was executed (<code>[str]</code>).</p>
+<p><strong>cwd</strong><br />
+The current working directory of the running process (<code>str</code>).</p>
+<p><strong>env</strong><br />
+Table of current environment variables (<code>{ [str]: str? }</code>).<br />
+Reading returns the current env vars.<br />
+Writing to this table updates the process environment variables.</p>
+<h3 id="exit">exit</h3>
+<p>Immediately terminates the script with the given exit code.<br />
+<code>0</code> indicates success; any other value indicates an error.</p>
+<pre><code class="language-js">process.exit(code: int)
+</code></pre>
+<p>Returns: never</p>
+<h3 id="create">create</h3>
+<p>Spawns a child process in the background and returns immediately.<br />
+Useful when you need to interact with stdin/stdout/stderr while the process runs.</p>
+<pre><code class="language-js">process.create(
+    program: str,
+    params: [str]? = nil,
+    options: CreateOptions? = nil
+): ChildProcess
+</code></pre>
+<p>Returns a <code>ChildProcess</code> dictionary containing:
+- <code>stdin</code> → <code>ChildProcessWriter</code>
+- <code>stdout</code> → <code>ChildProcessReader</code>
+- <code>stderr</code> → <code>ChildProcessReader</code>
+- <code>kill()</code> → method to forcefully terminate the process
+- <code>status()</code> → yields until process exits and returns exit code/status</p>
+<h3 id="exec">exec</h3>
+<p>Runs a child process synchronously and waits for it to complete.<br />
+Returns the final status and captured output.</p>
+<pre><code class="language-js">process.exec(
+    program: str,
+    params: [str]? = nil,
+    options: ExecOptions? = nil
+): ExecResult
+</code></pre>
+<p>Returns an <code>ExecResult</code> dictionary containing:
+- <code>ok</code>: <code>bool</code> (true if exit code was 0)
+- <code>code</code>: <code>int</code> (exit code, 0 if none was set)
+- <code>stdout</code>: <code>str</code> (captured standard output)
+- <code>stderr</code>: <code>str</code> (captured standard error)</p>
+<h2 id="types_1">Types</h2>
+<h3 id="execstdiokind">ExecStdioKind</h3>
+<p>Controls how stdio streams are handled during <code>process.exec</code>.<br />
+Possible values:
+- <code>"default"</code> - capture into result table only
+- <code>"inherit"</code> - inherit from parent (write to both result and parent's stream)
+- <code>"forward"</code> - forward to parent's stream only (no capture)
+- <code>"none"</code> - no stream created</p>
+<h3 id="execstdiooptions">ExecStdioOptions</h3>
+<pre><code class="language-js">{
+    stdin?: str | buffer,               // input data to send to child stdin
+    stdout?: ExecStdioKind,             // how to handle stdout
+    stderr?: ExecStdioKind              // how to handle stderr
+}
+</code></pre>
+<h3 id="execoptions">ExecOptions</h3>
+<pre><code class="language-js">{
+    cwd?: str,                          // working directory for the child
+    env?: { [str]: str? },              // additional/modified environment variables
+    shell?: bool | str,                 // run in shell (true = default shell, str = specific shell)
+    stdio?: ExecStdioOptions | ExecStdioKind
+}
+</code></pre>
+<h3 id="createoptions">CreateOptions</h3>
+<pre><code class="language-js">{
+    cwd?: str,
+    env?: { [str]: str? },
+    shell?: bool | str
+}
+</code></pre>
+<h3 id="childprocess">ChildProcess</h3>
+<p>Returned by <code>process.create</code>.  </p>
+<pre><code class="language-js">{
+    stdin: ChildProcessWriter,
+    stdout: ChildProcessReader,
+    stderr: ChildProcessReader,
+    kill: fn(),                         // kill the child process
+    status: fn(): int                   // yields until exit, returns exit code
+}
+</code></pre>
+<h3 id="execresult">ExecResult</h3>
+<p>Returned by <code>process.exec</code>.  </p>
+<pre><code class="language-js">{
+    ok: bool,
+    code: int,
+    stdout: str,
+    stderr: str
+}
+</code></pre>
+<h3 id="childprocessreader">ChildProcessReader</h3>
+<p>Reader for child process output streams (<code>stdout</code>/<code>stderr</code>).</p>
+<p><strong>Methods:</strong></p>
+<p><code>read(chunkSize: int? = 1024): str?</code><br />
+Reads up to <code>chunkSize</code> bytes. Returns <code>nil</code> when no more data is available.<br />
+May yield if waiting for new data.</p>
+<p><code>readToEnd(): str</code><br />
+Reads all remaining data until the process exits (yields).</p>
+<h3 id="childprocesswriter">ChildProcessWriter</h3>
+<p>Writer for child process input stream (<code>stdin</code>).</p>
+<p><strong>Methods:</strong></p>
+<p><code>write(data: str | buffer)</code><br />
+Writes data to the child’s stdin.</p>
+<p><code>close()</code><br />
+Closes the stdin stream (signals end-of-input to the child).</p>
+<hr />
+<p><strong>Loading the module:</strong></p>
+<pre><code class="language-js">let process = loadmodule(&quot;@std/process&quot;)!;
+</code></pre>
+<p>Most operations are synchronous where possible.<br />
+Child process handling is blocking only when using <code>exec</code> or when explicitly waiting via <code>status()</code> / <code>readToEnd()</code>.<br />
+Future versions may add more advanced process control features (signals, priority, etc.).</p>
+<h2 id="serde">serde</h2>
+<p>Serialization, deserialization, compression, decompression, and hashing utilities.<br />
+The <code>serde</code> module provides a clean, high-level interface for common data encoding/decoding and integrity operations.</p>
+<h3 id="functions">Functions</h3>
+<p><strong>encode</strong></p>
+<p>Encodes a value into a string using the specified format.</p>
+<pre><code class="language-js">serde.encode(
+    format: EncodeDecodeFormat,
+    value: any,
+    pretty: bool = false
+): str
+</code></pre>
+<ul>
+<li><code>pretty</code> is only supported for <code>"json"</code> and <code>"toml"</code> formats</li>
+</ul>
+<p><strong>decode</strong></p>
+<p>Decodes a string into a TuffSeal value using the specified format.</p>
+<pre><code class="language-js">serde.decode(
+    format: EncodeDecodeFormat,
+    encoded: str
+): any
+</code></pre>
+<p><strong>compress</strong></p>
+<p>Compresses a string using the given compression format.</p>
+<pre><code class="language-js">serde.compress(
+    format: CompressDecompressFormat,
+    s: str,
+    level: int? = nil
+): str
+</code></pre>
+<ul>
+<li>If <code>level</code> is omitted, the best (usually highest) compression level is used</li>
+<li>Level is automatically clamped to the format’s valid range</li>
+</ul>
+<p><strong>decompress</strong></p>
+<p>Decompresses a previously compressed string.</p>
+<pre><code class="language-js">serde.decompress(
+    format: CompressDecompressFormat,
+    s: str
+): str
+</code></pre>
+<p><strong>hash</strong></p>
+<p>Computes a cryptographic hash of the message and returns it as a lowercase hex string.</p>
+<pre><code class="language-js">serde.hash(
+    algorithm: HashAlgorithm,
+    message: str
+): str
+</code></pre>
+<p><strong>hmac</strong></p>
+<p>Computes HMAC (keyed-hash message authentication code) using the given algorithm, message, and secret.<br />
+Returns the result as a base64-encoded string.</p>
+<pre><code class="language-js">serde.hmac(
+    algorithm: HashAlgorithm,
+    message: str,
+    secret: str | buffer
+): str
+</code></pre>
+<h2 id="supported-formats-algorithms">Supported Formats &amp; Algorithms</h2>
+<h3 id="encodedecodeformat">EncodeDecodeFormat</h3>
+<p>Supported serialization/deserialization formats:</p>
+<ul>
+<li><code>"json"</code> – https://www.json.org</li>
+<li><code>"yaml"</code> – https://yaml.org</li>
+<li><code>"toml"</code> – https://toml.io</li>
+</ul>
+<h3 id="compressdecompressformat">CompressDecompressFormat</h3>
+<p>Supported compression/decompression algorithms:</p>
+<ul>
+<li><code>"brotli"</code> – https://github.com/google/brotli</li>
+<li><code>"gzip"</code> – https://www.gnu.org/software/gzip</li>
+<li><code>"lz4"</code> – https://github.com/lz4/lz4</li>
+<li><code>"zlib"</code> – https://www.zlib.net</li>
+<li><code>"zstd"</code> – https://github.com/facebook/zstd</li>
+</ul>
+<h3 id="hashalgorithm">HashAlgorithm</h3>
+<p>Supported hash algorithms:</p>
+<ul>
+<li><code>"md5"</code> – https://en.wikipedia.org/wiki/MD5</li>
+<li><code>"sha1"</code> – https://en.wikipedia.org/wiki/SHA-1</li>
+<li><code>"sha224"</code></li>
+<li><code>"sha256"</code></li>
+<li><code>"sha384"</code></li>
+<li><code>"sha512"</code> – (all part of SHA-2 family)</li>
+<li><code>"sha3-224"</code></li>
+<li><code>"sha3-256"</code></li>
+<li><code>"sha3-384"</code></li>
+<li><code>"sha3-512"</code> – (SHA-3 family)</li>
+<li><code>"blake3"</code> – https://en.wikipedia.org/wiki/BLAKE3</li>
+</ul>
+<hr />
+<p><strong>Loading the module:</strong></p>
+<pre><code class="language-js">let serde = loadmodule(&quot;@std/serde&quot;)!;
+</code></pre>
+<p><strong>Quick examples:</strong></p>
+<pre><code class="language-js">// JSON pretty-print
+let data = { name: &quot;TuffSeal&quot;, version: 1.0 };
+print(serde.encode(&quot;json&quot;, data, true));
+
+// Compress &amp; decompress
+let original = &quot;very very long text...&quot;;
+let compressed = serde.compress(&quot;zstd&quot;, original);
+let restored = serde.decompress(&quot;zstd&quot;, compressed);
+
+// Hashing
+print(serde.hash(&quot;sha256&quot;, &quot;hello world&quot;)); // hex string
+
+// HMAC example
+let signature = serde.hmac(&quot;sha256&quot;, &quot;message&quot;, &quot;my-secret-key&quot;);
+</code></pre>
+<p>All functions throw errors on invalid formats, malformed input, or unsupported operations.  </p>
+<h2 id="net">net</h2>
+<p>Built-in library for network access.<br />
+Provides high-level HTTP client/server functionality, WebSocket support, URL encoding/decoding, and low-level TCP socket operations.</p>
+<h3 id="functions_1">Functions</h3>
+<p><strong>request</strong></p>
+<p>Sends an HTTP request and returns the response.</p>
+<pre><code class="language-js">net.request(config: str | FetchParams): FetchResponse
+</code></pre>
+<ul>
+<li>Accepts a simple URL string or a full <code>FetchParams</code> dictionary</li>
+<li>Does <strong>not</strong> throw on HTTP error status codes (4xx/5xx) — check <code>response.ok</code> instead</li>
+<li>Throws only on network/connection failures</li>
+</ul>
+<p><strong>socket</strong></p>
+<p>Connects to a WebSocket server at the given URL.</p>
+<pre><code class="language-js">net.socket(url: str): WebSocket
+</code></pre>
+<p>Throws if:
+- The server does not support WebSockets
+- Connection/handshake fails</p>
+<p><strong>serve</strong></p>
+<p>Starts an HTTP server listening on the given port.</p>
+<pre><code class="language-js">net.serve(port: int, handlerOrConfig: fn | ServeConfig): ServeHandle
+</code></pre>
+<ul>
+<li>Non-blocking — returns immediately</li>
+<li>Server runs until <code>handle.stop()</code> is called</li>
+<li>Simple usage: pass a handler function</li>
+<li>Advanced usage: pass a <code>ServeConfig</code> dictionary</li>
+</ul>
+<p><strong>urlEncode</strong></p>
+<p>URL-encodes a string.</p>
+<pre><code class="language-js">net.urlEncode(s: str, binary: bool = false): str
+</code></pre>
+<p><strong>urlDecode</strong></p>
+<p>URL-decodes a string.</p>
+<pre><code class="language-js">net.urlDecode(s: str, binary: bool = false): str
+</code></pre>
+<h3 id="tcp-support">TCP Support</h3>
+<p><strong>net.tcp.connect</strong></p>
+<p>Connects to a remote host/port and returns a <code>TcpStream</code>.</p>
+<pre><code class="language-js">net.tcp.connect(
+    host: str,
+    port: int,
+    config: bool | TcpConfig = false
+): TcpStream
+</code></pre>
+<ul>
+<li><code>config</code> can be <code>true</code> for simple TLS, or a full <code>TcpConfig</code> table</li>
+<li>Throws on connection failure</li>
+</ul>
+<h3 id="types_2">Types</h3>
+<p><strong>FetchParams</strong></p>
+<pre><code class="language-js">{
+    url: str,                           // required
+    method?: str,                       // default: &quot;GET&quot;
+    body?: str,
+    query?: { [str]: str },
+    headers?: { [str]: str },
+    options?: FetchParamsOptions
+}
+</code></pre>
+<p><strong>FetchParamsOptions</strong></p>
+<pre><code class="language-js">{
+    decompress?: bool                   // auto-decompress response (default: true)
+}
+</code></pre>
+<p><strong>FetchResponse</strong></p>
+<pre><code class="language-js">{
+    ok: bool,                           // true if 200–299
+    statusCode: int,
+    statusMessage: str,
+    headers: { [str]: str },
+    body: str
+}
+</code></pre>
+<p><strong>ServeRequest</strong></p>
+<p>Incoming request in <code>serve</code> handler:</p>
+<pre><code class="language-js">{
+    path: str,
+    query: { [str]: str },
+    method: str,                        // uppercase
+    headers: { [str]: str },
+    body: str
+}
+</code></pre>
+<p><strong>ServeResponse</strong></p>
+<p>What your handler should return:</p>
+<pre><code class="language-js">{
+    status?: int,                       // 100–599, default 200
+    headers?: { [str]: str },
+    body?: str
+}
+</code></pre>
+<p><strong>ServeConfig</strong></p>
+<p>Advanced server configuration:</p>
+<pre><code class="language-js">{
+    address?: str,                      // e.g. &quot;http://0.0.0.0&quot;
+    handleRequest?: fn(request): ServeResponse,
+    handleWebSocket?: fn(ws: WebSocket)
+}
+</code></pre>
+<p><strong>ServeHandle</strong></p>
+<pre><code class="language-js">{
+    stop: fn()                          // gracefully shuts down the server
+}
+</code></pre>
+<p><strong>WebSocket</strong></p>
+<pre><code class="language-js">{
+    // When open:
+    send: fn(data: str | buffer),
+    next: fn(): str?,                   // yields for next message, nil on close
+    close: fn(code?: int),
+
+    // Read-only:
+    closeCode: int?                     // nil until closed, 1000–4999 after
+}
+</code></pre>
+<p><strong>TcpConfig</strong></p>
+<pre><code class="language-js">{
+    tls?: bool,                         // enable TLS
+    ttl?: int                           // IP time-to-live
+}
+</code></pre>
+<p><strong>TcpStream</strong></p>
+<p>Low-level TCP/TLS stream:</p>
+<pre><code class="language-js">{
+    read: fn(): str?,                   // read available data, may return nil
+    write: fn(data: str | buffer),
+    close: fn()
+}
+</code></pre>
+<hr />
+<p><strong>Loading the module:</strong></p>
+<pre><code class="language-js">let net = loadmodule(&quot;@std/net&quot;)!;
+</code></pre>
+<p><strong>Quick examples:</strong></p>
+<pre><code class="language-js">// Simple GET
+let resp = net.request(&quot;https://api.example.com/data&quot;);
+print(resp.statusCode, resp.body);
+
+// POST JSON
+let resp = net.request({
+    url: &quot;https://api.example.com/items&quot;,
+    method: &quot;POST&quot;,
+    headers: { [&quot;Content-Type&quot;]: &quot;application/json&quot; },
+    body: serde.encode(&quot;json&quot;, { name: &quot;New Item&quot; })
+});
+
+// Tiny echo server
+net.serve(8080, fn(req) {
+    {
+        status: 200,
+        body: &quot;You said: &quot; + req.body
+    };
+});
+</code></pre>
+<h2 id="datetime">datetime</h2>
+<p>Date and time manipulation module.<br />
+Provides a modern, precise <code>DateTime</code> type with support for multiple time zones (local/UTC), formatting, parsing, and conversions.</p>
+<h3 id="properties-on-datetime-instances">Properties (on DateTime instances)</h3>
+<p><strong>unixTimestamp</strong><br />
+<code>number</code><br />
+Seconds since UNIX epoch (1970-01-01 00:00:00 UTC), with fractional part for sub-second precision.</p>
+<p><strong>unixTimestampMillis</strong><br />
+<code>number</code><br />
+Milliseconds since UNIX epoch.</p>
+<h3 id="constructors">Constructors</h3>
+<p><strong>now</strong><br />
+Returns the current date and time.</p>
+<pre><code class="language-js">datetime.now(): DateTime
+</code></pre>
+<p><strong>fromUnixTimestamp</strong></p>
+<p>Creates a <code>DateTime</code> from a UNIX timestamp (seconds since epoch).<br />
+Supports fractional seconds down to nanosecond precision (truncated).</p>
+<pre><code class="language-js">datetime.fromUnixTimestamp(unixTimestamp: number): DateTime
+</code></pre>
+<p><strong>fromUniversalTime</strong><br />
+Creates a <code>DateTime</code> from UTC date/time components.</p>
+<pre><code class="language-js">datetime.fromUniversalTime(values: DateTimeValueArguments): DateTime
+</code></pre>
+<p>Throws if the date is invalid (e.g. February 30, non-leap February 29).</p>
+<p><strong>fromLocalTime</strong><br />
+Creates a <code>DateTime</code> from local date/time components.</p>
+<pre><code class="language-js">datetime.fromLocalTime(values: DateTimeValueArguments): DateTime
+</code></pre>
+<p>Throws on invalid dates (same rules as <code>fromUniversalTime</code>).</p>
+<p><strong>fromRfc3339</strong><br />
+Parses an RFC 3339 / ISO 8601 date-time string (preferred modern format).</p>
+<pre><code class="language-js">datetime.fromRfc3339(rfc3339Date: str): DateTime
+</code></pre>
+<p>Throws on invalid format.</p>
+<p><strong>fromRfc2822</strong><br />
+Parses an RFC 2822 date-time string (common in email/HTTP).</p>
+<pre><code class="language-js">datetime.fromRfc2822(rfc2822Date: str): DateTime
+</code></pre>
+<p>Throws on invalid format.</p>
+<p><strong>fromIsoDate</strong><br />
+<strong>DEPRECATED</strong> — use <code>fromRfc3339</code> instead.</p>
+<h3 id="methods-on-datetime-instances">Methods (on DateTime instances)</h3>
+<p><strong>formatLocalTime</strong></p>
+<p>Formats as local time using strftime-style pattern.</p>
+<pre><code class="language-js">dt:formatLocalTime(formatString?: str, locale?: Locale): str
+</code></pre>
+<p>Defaults: <code>"%Y-%m-%d %H:%M:%S"</code>, <code>"en"</code></p>
+<p><strong>formatUniversalTime</strong></p>
+<p>Formats as UTC using strftime-style pattern.</p>
+<pre><code class="language-js">dt:formatUniversalTime(formatString?: str, locale?: Locale): str
+</code></pre>
+<p><strong>toRfc3339</strong></p>
+<p>Formats as RFC 3339 string (recommended).</p>
+<pre><code class="language-js">dt:toRfc3339(): str
+</code></pre>
+<p><strong>toRfc2822</strong></p>
+<p>Formats as RFC 2822 string.</p>
+<pre><code class="language-js">dt:toRfc2822(): str
+</code></pre>
+<p><strong>toIsoDate</strong><br />
+<strong>DEPRECATED</strong> — use <code>toRfc3339</code> instead.</p>
+<p><strong>toLocalTime</strong></p>
+<p>Returns local date/time components as a table.</p>
+<pre><code class="language-js">dt:toLocalTime(): DateTimeValueReturns
+</code></pre>
+<p>Contains: <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>millisecond</code></p>
+<p><strong>toUniversalTime</strong></p>
+<p>Returns UTC date/time components as a table.</p>
+<pre><code class="language-js">dt:toUniversalTime(): DateTimeValueReturns
+</code></pre>
+<h3 id="types_3">Types</h3>
+<p><strong>Locale</strong><br />
+Supported formatting locales:</p>
+<ul>
+<li><code>"en"</code> – English  </li>
+<li><code>"de"</code> – German  </li>
+<li><code>"es"</code> – Spanish  </li>
+<li><code>"fr"</code> – French  </li>
+<li><code>"it"</code> – Italian  </li>
+<li><code>"ja"</code> – Japanese  </li>
+<li><code>"pl"</code> – Polish  </li>
+<li><code>"pt-br"</code> – Brazilian Portuguese  </li>
+<li><code>"pt"</code> – Portuguese  </li>
+<li><code>"tr"</code> – Turkish  </li>
+</ul>
+<p><strong>DateTimeValues</strong> / <strong>DateTimeValueArguments</strong> / <strong>DateTimeValueReturns</strong></p>
+<pre><code class="language-js">{
+    year: int,        // 1400–9999
+    month: int,       // 1–12
+    day: int,         // 1–31
+    hour: int,        // 0–23
+    minute: int,      // 0–59
+    second: int,      // 0–60 (60 = leap second)
+    millisecond?: int // 0–999 (optional in input, always present in output)
+}
+</code></pre>
+<hr />
+<p><strong>Loading the module:</strong></p>
+<pre><code class="language-js">let datetime = loadmodule(&quot;@std/datetime&quot;)!;
+</code></pre>
+<p><strong>Quick examples:</strong></p>
+<pre><code class="language-js">let now = datetime.now();
+print(now:toRfc3339());                    // 2026-01-11T11:30:45.123Z
+
+print(now:formatLocalTime(&quot;%A, %d %B %Y&quot;)); // Sunday, 11 January 2026
+
+let custom = datetime.fromUniversalTime({
+    year = 2025,
+    month = 12,
+    day = 25,
+    hour = 18,
+    minute = 30
+});
+
+print(custom:toRfc3339());                 // 2025-12-25T18:30:00Z
+</code></pre>
+<p>The <code>datetime</code> module is built for reliability, modern standards (RFC 3339 preferred), and easy localization.<br />
+Leap seconds are supported where present in the underlying system.<br />
+Future versions may add timezone-aware objects and more locales.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["naviation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
