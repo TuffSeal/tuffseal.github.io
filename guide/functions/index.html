@@ -991,7 +991,8 @@
 
 <h1 id="functions">Functions</h1>
 <p>Functions are declared using <code>fn</code>.
-Functions can be <code>let</code> or <code>const</code>.</p>
+Functions can be <code>let</code> or <code>const</code>.
+You can use <code>ins</code> to directly insert a function somewhere without having to declare it.</p>
 <pre><code class="language-js">let fn add(a, b)
 {
     a + b;
@@ -1007,6 +1008,14 @@ fn mult(a, b)
 {
     a * b;
 }
+
+let a: {
+    do_stuff: ins (a,b,c) {     // directly insert a function
+        print(&quot;Doing stuff!&quot;);
+    }
+}
+
+a.do_stuff();
 </code></pre>
 <p>If a function declare type(<code>let</code>/<code>const</code>) is not defined, it defaults to <code>let</code>.</p>
 <p><strong>NOTE:</strong> TuffSeal doesn't have <code>return</code>. The last expression is returned automatically.</p>

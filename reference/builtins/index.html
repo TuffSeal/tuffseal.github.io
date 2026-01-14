@@ -1164,6 +1164,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#getenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getenv
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1454,6 +1465,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#getenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getenv
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1639,8 +1661,16 @@ m.a();
 
 //-------------------------------------//
 
-let m = loadmodule(&quot;a.tfs&quot;);
+let m = loadmodule(&quot;a.tfs&quot;)!;
 m.a();
+
+//-------------------------------------//
+
+let m = loadmodule(&quot;a.luau&quot;)!;
+
+//-------------------------------------//
+
+let m = loadmodule(&quot;a.lua&quot;)!;
 </code></pre>
 <h2 id="cloneobject">cloneobject</h2>
 <p>Usage:</p>
@@ -1656,6 +1686,17 @@ print(clone); // hi!
 </code></pre>
 <pre><code class="language-js">let s = &quot;hi&quot;;
 print(type(s)); // str
+</code></pre>
+<h2 id="getenv">getenv</h2>
+<p>Usage:</p>
+<pre><code>getenv()!: Dict(str, any)
+</code></pre>
+<pre><code class="language-js">let env = getenv()!; // will return a list of all 'let' variables and functions currently in the env.
+
+for (key, val in env) {
+    print(key, val);
+}
+print(env);
 </code></pre>
 
 

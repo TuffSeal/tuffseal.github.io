@@ -1094,27 +1094,27 @@ print(mathmod.add(1, 2)); // 3
 <pre><code class="language-js">let module = loadmodule(&quot;./module.tfs&quot;)!;
 module.do_whatever();
 </code></pre>
+<p>You can also load <code>.luau</code> or <code>.lua</code> files as modules:</p>
+<pre><code class="language-js">let mod = loadmodule(&quot;./module.luau&quot;)!;
+let mod2 = loadmodule(&quot;./module.lua&quot;)!;
+</code></pre>
 <p>In the <code>loadmodule</code> function, after the path to the module you can include <code>loadargs</code></p>
 <pre><code class="language-js">let mod = loadmodule(&quot;./module&quot;, &quot;everything after the module path will be a loadarg!&quot;, 1, 2, 3)!;
 </code></pre>
 <h2 id="creating-modules">Creating modules</h2>
 <p>Example module structure:</p>
 <pre><code>test_module /
-    module.tfs
+    module.tfs OR module.luau OR module.lua
 </code></pre>
-<p>When <code>loadmodule</code> is ran on the module folder, <code>module.tfs</code> is ran and returned automatically.</p>
+<p>When <code>loadmodule</code> is ran on the module folder, <code>module.tfs</code>, <code>module.luau</code> or <code>module.lua</code> is ran and returned automatically.</p>
 <p>Example module code:</p>
-<pre><code class="language-js">let fn add(a, b) {
-    a + b;
-}
-
-let fn sub(a, b) {
-    a - b;
-}
-
-let test_module = {
-    add: add,
-    sub: sub
+<pre><code class="language-js">let test_module = {
+    add: ins (a, b) {   // NOTE: It's easier to use 'ins' to directly insert a function into a dict entry.
+        a + b;          // Use 'ins' instead of declaring a function and adding a reference to it into the dict.
+    },
+    sub: ins (a, b) {
+        a - b;
+    }
 };
 
 test_module; // modules must always return something!

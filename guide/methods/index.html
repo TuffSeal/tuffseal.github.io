@@ -991,20 +991,29 @@
 
 <h1 id="methods-self-calls">Methods &amp; Self Calls</h1>
 <p>TuffSeal supports method-style calls using <code>!</code>.</p>
-<pre><code class="language-js">fn setA(self) {
-    setattr(self, &quot;a&quot;, 5);
+<pre><code class="language-js">
+fn setB(self)
+{
+    setattr(self, &quot;b&quot;, 10);
 }
 
 let obj = {
     a: 1,
-    setA: setA
+    b: 5
+    setA: ins (self) {
+        setattr(self, &quot;a&quot;, 5);
+    },
+    setB: setB
 };
 
 print(obj.a); // 1
+print(obj.b); // 5
 
 obj.setA()!;
+obj.setB()!;
 
 print(obj.a); // 5
+print(obj.b); // 10
 </code></pre>
 <p>The <code>!</code> operator explictly passes <code>self</code>.</p>
 

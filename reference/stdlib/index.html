@@ -1679,6 +1679,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2419,6 +2458,45 @@
     <span class="md-ellipsis">
       
         Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        math
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Values
       
     </span>
   </a>
@@ -3266,6 +3344,121 @@ print(custom:toRfc3339());                 // 2025-12-25T18:30:00Z
 <p>The <code>datetime</code> module is built for reliability, modern standards (RFC 3339 preferred), and easy localization.<br />
 Leap seconds are supported where present in the underlying system.<br />
 Future versions may add timezone-aware objects and more locales.</p>
+<h2 id="math">math</h2>
+<p>Built-in library for mathematical operations.</p>
+<h3 id="functions_2">Functions</h3>
+<p><strong>abs</strong></p>
+<p>Returns the absolute value of <code>n</code>. Returns <code>null</code> if the input is <code>null</code>.</p>
+<pre><code class="language-js">abs(n: int): int
+</code></pre>
+<pre><code class="language-js">let math = loadmodule(&quot;@std/math&quot;)!;
+print(math.abs(-3));
+</code></pre>
+<p><strong>cos</strong></p>
+<p>Returns the cosine of <code>n</code>, which is an angle in radians. Returns a value in <code>[0, 1]</code> range.</p>
+<pre><code class="language-js">cos(n: int): int
+</code></pre>
+<pre><code class="language-js">let math = loadmodule(&quot;@std/math&quot;)!;
+print(math.cos(67));
+</code></pre>
+<p><strong>cosh</strong></p>
+<p>Returns the hyperbolic cosine of <code>n</code>.</p>
+<pre><code class="language-js">cosh(n: int): int
+</code></pre>
+<p><strong>ceil</strong></p>
+<p>Rounds <code>n</code> upwards to the next integer boundary.</p>
+<pre><code class="language-js">ceil(n: number): number
+</code></pre>
+<pre><code class="language-js">let math = loadmodule(&quot;@std/math&quot;)!;
+print(math.ceil(41));
+</code></pre>
+<p><strong>random</strong></p>
+<p>Returns a rando, number using the global random number generator. A zero-argument version returns a number in <code>[0, 1]</code> range. A one-argument version returns a number in <code>[1, n]</code> range, The input arguments are truncated to integers, so <code>math.random(1.5)</code> always returns 1.</p>
+<pre><code class="language-js">random(): int
+random(n: int): int
+random(min: int, max: int): int
+</code></pre>
+<pre><code class="language-js">let math = loadmodule(&quot;@std/math&quot;)!;
+
+print(math.random());
+print(math.random(5));
+print(math.random(10, 60));
+</code></pre>
+<p><strong>round</strong></p>
+<p>Rounds <code>n</code> to the nearest integer boundary. If <code>n</code> is exactly halfway between two integers, rounds <code>n</code> away from 0.</p>
+<pre><code class="language-js">round(n: int): int
+</code></pre>
+<p><strong>rad</strong></p>
+<p>Converts <code>n</code> from degrees to radians and returns the result.</p>
+<pre><code>rad(n: int): int
+</code></pre>
+<p><strong>fmod</strong></p>
+<p>Returns the remainder of <code>x</code> modulo <code>y</code>, rounded towards zero. Returns <code>null</code> if <code>y</code> is zero.</p>
+<pre><code>fmod(x: int, y: int): int
+</code></pre>
+<p><strong>floor</strong></p>
+<p>Rounds <code>n</code> downwards to previous integer boundary.</p>
+<pre><code>floor(n: int): int
+</code></pre>
+<p><strong>frexp</strong></p>
+<p>Splits the number into a significand (a number in <code>[-1, +1]</code> range) and binary exponent such that <code>n = s * 2^e</code>, and returns <code>s, e</code></p>
+<pre><code>frexp(n: int): (int, int)
+</code></pre>
+<p><strong>max</strong></p>
+<p>Returns the maximum number of the input arguments. The function requires at least one input and will error if zero parameters are passed. If one of the inputs is <code>null</code>, the result may or may not be <code>null</code>.</p>
+<pre><code>max(list: ...int): int
+</code></pre>
+<p><strong>min</strong></p>
+<p>Returns the minimum number of the input arguments. The function requires at least one input and will error if zero parameters are passed. If one of the inputs is <code>null</code>, the result may or may not be <code>null</code>.</p>
+<pre><code>min(list: ...int): int
+</code></pre>
+<p><strong>modf</strong></p>
+<p>Returns the integer and fractional part of the input number. Both the integer and fractional part have the same sign as the input number, e.g. <code>math.modf(-1.5)</code> returns <code>-1, -0.5</code>.</p>
+<pre><code>modf(n: int): (int, int)
+</code></pre>
+<p><strong>map</strong></p>
+<p>Returns a value that represents <code>x</code> mapped linearly from the input range (<code>inmin</code> to <code>inmax</code>) to the output range (<code>outmin</code> to <code>outmax</code>)</p>
+<pre><code>map(x: int, inmin: int, inmax: int, outmin: int, outmax: int): int
+</code></pre>
+<p><strong>log</strong></p>
+<p>Returns logarithm of the input number in the specified base; base defaults to <code>e</code>. Returns <code>null</code> if the input is negative, and negative infinity if the input is 0.</p>
+<pre><code>log(n: int, base: int?): int
+</code></pre>
+<p><strong>log10</strong></p>
+<p>Returns base-10 logarithm of the input number. Returns <code>null</code> if the input is negative, and negative infinity if the input is <code>0</code>. Equivalent to `log(n, 10).</p>
+<pre><code>log10(n: int): int
+</code></pre>
+<p><strong>lerp</strong></p>
+<p>Linearly interpolated between number value <code>a</code> and <code>b</code> using factor <code>t</code>, generally returning the result of <code>a + (b - a) * t</code>. When <code>t</code> is exactly <code>1</code>, the value of <code>b</code> will be returned instead to ensure that when <code>t</code> is on the interval <code>[0,1]</code> the result of <code>lerp</code> will be on the interval <code>[a,b]</code>.</p>
+<pre><code>lerp(a: int, b: int, t: int): int
+</code></pre>
+<p><strong>ldexp</strong></p>
+<p>Given the significand and a binary exponent, returns a number <code>s * 2^e</code>.</p>
+<pre><code>ldexp(s: int, e: int): int
+</code></pre>
+<p><strong>isinf</strong></p>
+<p>Returns <code>true</code> if <code>x</code> is positive or negativy infinity (<code>Inf</code>), and <code>false</code> otherwise.</p>
+<pre><code>isinf(n: int): bool
+</code></pre>
+<p><strong>isnan</strong></p>
+<p>Returns <code>true</code> if <code>x</code> is Not-a-Number (NaN), and false otherwise.</p>
+<pre><code>isnan(n: int): bool
+</code></pre>
+<p><strong>isfinite</strong></p>
+<p>Returns <code>true</code> if <code>x</code> is a finite number, meaning it is neither <code>NaN</code> nor positive or negative infinity (<code>math.huge</code>).</p>
+<pre><code>isfinite(n: int)
+</code></pre>
+<p><strong>pow</strong></p>
+<p>Returns <code>x</code> raised to the power of <code>y</code>.</p>
+<pre><code>pow(x: int, y: int): int
+</code></pre>
+<h3 id="values">Values</h3>
+<p><strong>huge</strong></p>
+<p>Positive infinity.</p>
+<pre><code>huge: int
+</code></pre>
+<p><strong>pi</strong></p>
+<p>Value of pi (<code>~3.14...</code>)</p>
 
 
 

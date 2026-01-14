@@ -380,6 +380,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comments
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -396,6 +414,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#single-line-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single line comments:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block comments:
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -971,6 +1030,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#single-line-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single line comments:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block comments:
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -990,11 +1079,20 @@
 
 
 <h1 id="comments">Comments</h1>
-<p>TuffSeal currently only support single-line comments</p>
-<pre><code class="language-js">// This is a comment
+<p>TuffSeal supports two types of comments:
+- Single line comments (<code>//</code>)
+- Block comments (<code>/* */</code>)</p>
+<h2 id="single-line-comments">Single line comments:</h2>
+<pre><code class="language-js">// this is a single line comment!
+// this comment cannot contain multiple lines.
+</code></pre>
+<h2 id="block-comments">Block comments:</h2>
+<pre><code class="language-js">/*
+This is a block comment,
+It can contain as much lines as you want.
+*/
 </code></pre>
 <p>Comments are ignored by the lexer.</p>
-<p>Block comments will be added in a future update.</p>
 
 
 
